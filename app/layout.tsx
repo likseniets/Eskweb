@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.steineskil.com"),
-  title: "Eskweb - Personal Website",
+  title: "Eskil web - Personal Website",
   description:
     "A personal website built with Next.js showcasing my resume, projects, and music interests.",
   keywords: [
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     canonical: "https://www.steineskil.com",
   },
   openGraph: {
-    title: "Eskweb - Personal Website",
+    title: "Eskil web - Personal Website",
     description:
       "A personal website built with Next.js showcasing my resume, projects, and music interests.",
     url: "https://www.steineskil.com",
-    siteName: "Eskweb",
+    siteName: "Eskil web",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Eskweb - Personal Website",
+    title: "Eskil web - Personal Website",
     description:
       "A personal website built with Next.js showcasing my resume, projects, and music interests.",
   },

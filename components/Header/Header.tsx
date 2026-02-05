@@ -16,7 +16,7 @@ const Header = () => {
             href="/"
             className="text-2xl font-bold text-slate-700 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 transition-colors"
           >
-            Eskweb
+            Eskil-Web
           </Link>
         </div>
         <div className="hidden md:flex gap-4 items-center">
