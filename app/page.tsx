@@ -374,6 +374,46 @@ export default function Home() {
             </ul>
           </div>
         </section>
+
+        <footer className="mt-16 pt-6">
+          <div className="border border-slate-300/60 dark:border-slate-700/60 rounded-2xl bg-white/80 dark:bg-slate-900/70 shadow-lg p-6 sm:p-8">
+            <div className="flex flex-col items-start gap-4">
+              <div className="border-l-4 border-emerald-400 pl-3">
+                <h2 className="text-lg text-slate-900 dark:text-white font-semibold">
+                  Contact
+                </h2>
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  Get in touch
+                </p>
+              </div>
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
+                <li>
+                  <span className="font-semibold text-slate-900 dark:text-white">
+                    Mail:
+                  </span>{" "}
+                  <a
+                    href="mailto:steineskil@gmail.com"
+                    className="underline decoration-emerald-400/80 hover:text-emerald-600 dark:hover:text-emerald-300"
+                  >
+                    steineskil@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-900 dark:text-white">
+                    LinkedIn:
+                  </span>{" "}
+                  <Link
+                    target="_blank"
+                    href="https://www.linkedin.com/in/stein-eskil-losvar-491207199/"
+                    className="underline decoration-emerald-400/80 hover:text-emerald-600 dark:hover:text-emerald-300"
+                  >
+                    Stein-Eskil H. Losvar
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
