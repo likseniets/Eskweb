@@ -284,8 +284,9 @@ export default function Home() {
             </div>
             <ul className={`list-disc list-inside space-y-2 text-slate-300`}>
               <li>
-                Currently pursuing a Bachelor's degree in Computer Engineering,
-                with an expected graduation date in the summer of 2026.
+                Currently pursuing a Bachelor&apos;s degree in Computer
+                Engineering, with an expected graduation date in the summer of
+                2026.
               </li>
               <li>
                 The program has provided me with a strong foundation in software
