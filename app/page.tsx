@@ -5,30 +5,36 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen animated-background dark:bg-gray-400 dark:bg-gradient-to-br dark:from-slate-900 dark:via-purple-950/30 dark:to-slate-900">
-      <div className="max-w-6xl mx-auto px-6 py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:py-24">
         <section className="mb-16">
-          <div className="flex items-start gap-6 mb-8">
+          <div className="grid sm:grid-flow-col grid-rows-2 grid-cols-3 sm:grid-cols-4 gap-4 lg:gap-0 mb-5">
             <Image
               src="/ProfilePic.png"
               alt="Profile Picture"
               width={1148}
               height={1162}
-              className="w-54 rounded-full text-white"
+              className="sm:row-span-2 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full object-cover text-white"
             />
-            <div className="flex-1">
-              <h1 className={`text-4xl mb-2 text-slate-900 dark:text-white`}>
+            <div className="col-span-2 sm:col-span-3 flex flex-col justify-center">
+              <h1
+                className={`text-3xl sm:text-4xl mb-2 text-slate-900 dark:text-white`}
+              >
                 Stein-Eskil Hovde Losvar
               </h1>
-              <p className={`text-xl text-slate-700 dark:text-gray-300 mb-4`}>
+              <p
+                className={`text-lg sm:text-xl text-slate-700 dark:text-gray-300 mb-4`}
+              >
                 Software Developer
               </p>
+            </div>
+            <div className="col-span-3">
               <p className={`text-slate-700 dark:text-gray-300 max-w-2xl mb-4`}>
                 Passionate developer with expertise in creating elegant
                 solutions to complex problems. I blend technical excellence with
                 creative thinking, driven by my interests in programming,
                 gaming, and music.
               </p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <Link
                   target="_blank"
                   href="https://github.com/likseniets"
@@ -71,16 +77,17 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Experience */}
         <section className="mb-16">
           <h2
-            className={`text-2xl mb-6 text-slate-900 dark:text-white border-b-2 border-purple-300 dark:border-yellow-300/60 pb-2`}
+            className={`text-xl sm:text-2xl mb-6 text-slate-900 dark:text-white border-b-2 border-purple-300 dark:border-yellow-300/60 pb-2`}
           >
             Experience
           </h2>
           <div
-            className={`p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
           >
-            <div className="flex justify-between items-start mb-3">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
               <div>
                 <h3
                   className={`text-lg text-slate-900 dark:text-white font-semibold`}
@@ -103,9 +110,9 @@ export default function Home() {
             </ul>
           </div>
           <div
-            className={`p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
           >
-            <div className="flex justify-between items-start mb-3">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
               <div>
                 <h3
                   className={`text-lg text-slate-900 dark:text-white font-semibold`}
@@ -131,9 +138,9 @@ export default function Home() {
             </ul>
           </div>
           <div
-            className={`p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-yellow-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
           >
-            <div className="flex justify-between items-start mb-3">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
               <div>
                 <h3
                   className={`text-lg text-slate-900 dark:text-white font-semibold`}
@@ -155,6 +162,213 @@ export default function Home() {
               <li>
                 Led one project for making the website of OlkWeb, here i learned
                 a lot about time management
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section className="mb-16">
+          <h2
+            className={`text-xl sm:text-2xl mb-6 text-slate-900 dark:text-white border-b-2 border-pink-300 dark:border-pink-400/80 pb-2`}
+          >
+            Skills
+          </h2>
+          <div className="flex flex-wrap gap-2 lg:gap-4 justify-between">
+            <div className="bg-slate-700/60 md:w-49/100 w-full border border-slate-600/60 rounded-2xl p-4">
+              <h2 className="text-base sm:text-lg text-white font-semibold mb-3">
+                Languages & Frameworks
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "JavaScript",
+                  "TypeScript",
+                  "React",
+                  "Node.js",
+                  "Python",
+                  "Next.js",
+                  "ASP.NET",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 bg-slate-100 text-slate-900 rounded-lg text-[11px] sm:text-xs font-semibold border border-slate-300 shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-slate-700/60 md:w-49/100 w-full border border-slate-600/60 rounded-2xl p-4">
+              <h2 className="text-base sm:text-lg text-white font-semibold mb-3">
+                Tools & Technologies
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {["Git", "Rest APIs", "Docker", "Linux", "VS Code"].map(
+                  (skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 bg-slate-100 text-slate-900 rounded-lg text-[11px] sm:text-xs font-semibold border border-slate-300 shadow-sm"
+                    >
+                      {skill}
+                    </span>
+                  ),
+                )}
+              </div>
+            </div>
+            <div className="bg-slate-700/60 md:w-49/100 w-full border border-slate-600/60 rounded-2xl p-4">
+              <h2 className="text-base sm:text-lg text-white font-semibold mb-3">
+                Frontend
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "HTML/CSS",
+                  "Tailwind CSS",
+                  "Responsive Design",
+                  "Accessibility",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 bg-slate-100 text-slate-900 rounded-lg text-[11px] sm:text-xs font-semibold border border-slate-300 shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-slate-700/60 md:w-49/100 w-full border border-slate-600/60 rounded-2xl p-4">
+              <h2 className="text-base sm:text-lg text-white font-semibold mb-3">
+                Soft Skills
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Team Collaboration",
+                  "Problem Solving",
+                  "Time Management",
+                  "Adaptability",
+                  "Communication",
+                  "Scrum",
+                  "Code Reviews",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 bg-slate-100 text-slate-900 rounded-lg text-[11px] sm:text-xs font-semibold border border-slate-300 shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education */}
+        <section>
+          <h2
+            className={`text-xl sm:text-2xl mb-6 text-slate-900 dark:text-white border-b-2 border-blue-300 dark:border-blue-400/80 pb-2`}
+          >
+            Education
+          </h2>
+          <div
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-blue-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+          >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
+              <div>
+                <h3
+                  className={`text-lg text-slate-900 dark:text-white font-semibold`}
+                >
+                  Computer Engineering
+                </h3>
+                <p className="text-slate-300">Oslo Metropolitan University.</p>
+              </div>
+              <span className="text-slate-400">2022 - Present</span>
+            </div>
+            <ul className={`list-disc list-inside space-y-2 text-slate-300`}>
+              <li>
+                Currently pursuing a Bachelor's degree in Computer Engineering,
+                with an expected graduation date in the summer of 2026.
+              </li>
+              <li>
+                The program has provided me with a strong foundation in software
+                development, algorithms, and data structures, complementing my
+                practical experience.
+              </li>
+              <li>
+                Have during my studies learned a lot about programming
+                languages, software architecture, and best practices in software
+                development, which I have applied in my projects.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className="mb-16">
+          <h2
+            className={`text-xl sm:text-2xl mb-6 text-slate-900 dark:text-white border-b-2 border-green-300 dark:border-green-400/80 pb-2`}
+          >
+            Projects
+          </h2>
+          <div
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-green-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+          >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
+              <div>
+                <h3
+                  className={`text-lg text-slate-900 dark:text-white font-semibold`}
+                >
+                  This Website
+                </h3>
+                <p className="text-slate-300">Personal Portfolio Website.</p>
+              </div>
+              <span className="text-slate-400">2026 - Present</span>
+            </div>
+            <ul className={`list-disc list-inside space-y-2 text-slate-300`}>
+              <li>
+                A personal portfolio website built with Next.js and Tailwind
+                CSS, showcasing my projects, skills, and experience in a clean
+                and modern design.
+              </li>
+              <li>
+                The website is fully responsive and optimized for performance,
+                providing an engaging user experience across all devices.
+              </li>
+              <li>
+                This website serves as a place for me to display who i am, my
+                experience, and my skills, and is a project that i am
+                continuously improving and updating as i grow in my career.
+              </li>
+            </ul>
+          </div>
+          <div
+            className={`p-5 sm:p-6 hover:shadow-lg transition-shadow border-l-4 border-l-green-500 bg-slate-800/50 border-slate-700/50 rounded-3xl my-6`}
+          >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2">
+              <div>
+                <h3
+                  className={`text-lg text-slate-900 dark:text-white font-semibold`}
+                >
+                  Innsikt Parent App
+                </h3>
+                <p className="text-slate-300">
+                  App for parents to develop better communication with their
+                  children.
+                </p>
+              </div>
+              <span className="text-slate-400">2025 - Present</span>
+            </div>
+            <ul className={`list-disc list-inside space-y-2 text-slate-300`}>
+              <li>
+                This is a collaborative project where I am working with fellow
+                student and Innsikt.ai to create an app that helps parents and
+                children communicate better, by providing a platform for sharing
+                thoughts, feelings, and experiences in a safe and supportive
+                environment.
+              </li>
+              <li>
+                The app is built using React Native for the frontend and Python
+                FastApi for the backend, with postgreSQL as the database, hosted
+                in AWS, and is designed to be user-friendly and accessible to
+                parents of all tech levels.
               </li>
             </ul>
           </div>
