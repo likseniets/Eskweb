@@ -22,9 +22,10 @@ async function proxyRequest(
   const url = buildBackendUrl(request, path);
   const headers = new Headers(request.headers);
   headers.delete("host");
+  headers.delete("accept-encoding");
 
   try {
-    return await fetch(url, {
+    const upstreamResponse = await fetch(url, {
       method: request.method,
       headers,
       body:
@@ -32,6 +33,17 @@ async function proxyRequest(
           ? undefined
           : request.body,
       redirect: "manual",
+    });
+
+    const responseHeaders = new Headers(upstreamResponse.headers);
+    responseHeaders.delete("content-encoding");
+    responseHeaders.delete("content-length");
+    responseHeaders.delete("transfer-encoding");
+
+    return new Response(upstreamResponse.body, {
+      status: upstreamResponse.status,
+      statusText: upstreamResponse.statusText,
+      headers: responseHeaders,
     });
   } catch (error) {
     console.error("Music API proxy failed:", error);
