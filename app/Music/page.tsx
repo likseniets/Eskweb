@@ -39,13 +39,6 @@ const MusicInner = () => {
   const [topAlbums, setTopAlbums] = useState<TopAlbumsResponse | null>(null);
   const [topAlbumsError, setTopAlbumsError] = useState<string | null>(null);
 
-  const vercelUrl = process.env.VERCEL_URL;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
-    ? process.env.NEXT_PUBLIC_SITE_URL
-    : vercelUrl
-      ? `https://${vercelUrl}`
-      : "http://localhost:3000";
-
   const { limit, tracksPeriod, albumsPeriod } = useMemo(() => {
     const rawLimit = Number.parseInt(searchParams.get("limit") ?? "", 10);
     const safeLimit = Number.isFinite(rawLimit) && rawLimit > 0 ? rawLimit : 10;
@@ -72,7 +65,7 @@ const MusicInner = () => {
   useEffect(() => {
     const getUserProfile = async () => {
       try {
-        const response = await fetch(`${baseUrl}/music/user_profile`, {
+        const response = await fetch("/api/music/user_profile", {
           cache: "no-store",
         });
 
@@ -93,12 +86,12 @@ const MusicInner = () => {
     };
 
     getUserProfile();
-  }, [baseUrl]);
+  }, []);
 
   useEffect(() => {
     const getNowPlaying = async () => {
       try {
-        const response = await fetch(`${baseUrl}/music/now_playing`, {
+        const response = await fetch("/api/music/now_playing", {
           cache: "no-store",
         });
 
@@ -130,13 +123,13 @@ const MusicInner = () => {
     return () => {
       window.clearInterval(intervalId);
     };
-  }, [baseUrl]);
+  }, []);
 
   useEffect(() => {
     const getUserTracks = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}/music/user_tracks?limit=${limit}&period=${tracksPeriod}`,
+          `/api/music/user_tracks?limit=${limit}&period=${tracksPeriod}`,
           { cache: "no-store" },
         );
         if (!response.ok) {
@@ -156,13 +149,13 @@ const MusicInner = () => {
     };
 
     getUserTracks();
-  }, [baseUrl, limit, tracksPeriod]);
+  }, [limit, tracksPeriod]);
 
   useEffect(() => {
     const getTopAlbums = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}/music/user_albums?limit=${limit}&period=${albumsPeriod}`,
+          `/api/music/user_albums?limit=${limit}&period=${albumsPeriod}`,
           { cache: "no-store" },
         );
         if (!response.ok) {
@@ -180,7 +173,7 @@ const MusicInner = () => {
     };
 
     getTopAlbums();
-  }, [baseUrl, limit, albumsPeriod]);
+  }, [limit, albumsPeriod]);
 
   const topGenres = [
     { name: "Indie Rock", count: 156 },
