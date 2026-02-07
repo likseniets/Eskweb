@@ -44,7 +44,7 @@ const MusicInner = () => {
     ? process.env.NEXT_PUBLIC_SITE_URL
     : vercelUrl
       ? `https://${vercelUrl}`
-      : "http://localhost:3000";
+      : "https://www.steineskil.com";
 
   const { limit, tracksPeriod, albumsPeriod } = useMemo(() => {
     const rawLimit = Number.parseInt(searchParams.get("limit") ?? "", 10);
