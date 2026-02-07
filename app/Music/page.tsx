@@ -3,7 +3,7 @@ import { Calendar, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import type {
   NowPlayingResponse,
   TopAlbumsResponse,
@@ -28,7 +28,7 @@ const periodLabels: Record<(typeof allowedPeriods)[number], string> = {
   "12month": "12 months",
 };
 
-const Music = () => {
+const MusicInner = () => {
   const searchParams = useSearchParams();
   const [userProfile, setUserProfile] = useState<unknown>(null);
   const [userProfileError, setUserProfileError] = useState<string | null>(null);
@@ -571,5 +571,11 @@ const Music = () => {
     </div>
   );
 };
+
+const Music = () => (
+  <Suspense fallback={<div className="text-purple-200">Loading...</div>}>
+    <MusicInner />
+  </Suspense>
+);
 
 export default Music;
